@@ -7,39 +7,247 @@
 <title>Kiyoshi Tezuka</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300&family=Zen+Old+Mincho:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Zen+Old+Mincho:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbfbf9;--ink:#141414;--soft:#7d7b76;--line:#e2e0da;--accent:#1a3d34;
-  --sans:"Jost","Zen Old Mincho",sans-serif;--serif:"Zen Old Mincho","Hiragino Mincho ProN",serif}
+:root{
+  --bg:#fbfbf9;
+  --ink:#141414;
+  --soft:#7d7b76;
+  --line:#e2e0da;
+  --accent:#1a3d34;
+  --sans:"Jost","Zen Old Mincho","Hiragino Sans",sans-serif;
+  --serif:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --side:260px;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--serif);letter-spacing:.05em;
-  min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:44px 40px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:2;letter-spacing:.05em;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.top{font-family:var(--sans);font-weight:300;font-size:15px;letter-spacing:.16em;line-height:1.4}
-.top b{display:block;font-weight:400}
-.top span{display:block;font-family:var(--serif);font-size:10px;letter-spacing:.5em;color:var(--soft);margin-top:9px}
-main{max-width:640px;margin:60px 0}
-h1{font-family:var(--sans);font-weight:200;font-size:clamp(38px,7vw,76px);line-height:1.08;letter-spacing:.02em}
-h1 i{font-family:var(--serif);font-style:normal;font-size:.3em;letter-spacing:.28em;display:block;
-  margin-top:22px;color:var(--soft)}
-p{margin-top:32px;font-size:14.5px;line-height:2.4;color:#333;max-width:460px}
-.links{margin-top:44px;display:flex;gap:28px;font-family:var(--sans);font-size:11px;letter-spacing:.24em}
-.links a{border-bottom:1px solid var(--line);padding-bottom:6px;color:var(--accent);transition:border-color .4s}
-.links a:hover{border-color:var(--accent)}
-footer{font-family:var(--sans);font-size:10px;letter-spacing:.2em;color:var(--soft);
-  border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-@media(max-width:700px){body{padding:26px 20px}main{margin:44px 0}}
+
+/* ---------- sidebar ---------- */
+aside{
+  position:fixed;top:0;left:0;bottom:0;width:var(--side);z-index:40;
+  padding:44px 30px;display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid var(--line);background:var(--bg);
+}
+.logo{font-family:var(--sans);font-weight:300;font-size:20px;letter-spacing:.16em;line-height:1.35}
+.logo b{display:block;font-weight:400}
+.logo span{display:block;font-family:var(--serif);font-size:11px;letter-spacing:.55em;color:var(--soft);margin-top:12px}
+.side-nav{list-style:none;font-family:var(--sans);font-size:12px;letter-spacing:.2em;font-weight:300}
+.side-nav li{border-top:1px solid var(--line)}
+.side-nav li:last-child{border-bottom:1px solid var(--line)}
+.side-nav a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;color:var(--soft);transition:color .3s,padding .3s}
+.side-nav a:hover{color:var(--ink);padding-left:7px}
+.side-nav em{font-style:normal;font-size:9.5px;letter-spacing:.15em;opacity:.55}
+.side-foot{font-family:var(--sans);font-size:10px;letter-spacing:.18em;color:var(--soft);line-height:2.2}
+
+main{margin-left:var(--side)}
+
+/* ---------- hero ---------- */
+.hero{height:100vh;min-height:620px;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:linear-gradient(115deg,#cdcbc4,#a8a69d 45%,#84837c);filter:saturate(.35)}
+.hero .bg::after{content:"FULL-BLEED PHOTO";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--sans);font-size:11px;letter-spacing:.5em;color:rgba(255,255,255,.7)}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,0) 55%)}
+.hero-copy{position:relative;padding:0 60px 70px;color:#fbfbf9}
+.hero-copy h1{font-family:var(--sans);font-weight:200;font-size:clamp(40px,6.2vw,88px);letter-spacing:.02em;line-height:1.05}
+.hero-copy h1 i{font-family:var(--serif);font-style:normal;font-size:.34em;letter-spacing:.3em;display:block;margin-top:20px;opacity:.85}
+.hero-copy p{margin-top:26px;max-width:520px;font-size:14px;line-height:2.3;opacity:.9}
+.scroll{position:absolute;right:60px;bottom:70px;font-family:var(--sans);font-size:10px;letter-spacing:.35em;color:rgba(251,251,249,.8);writing-mode:vertical-rl}
+
+/* ---------- sections ---------- */
+section{padding:120px 60px;border-bottom:1px solid var(--line)}
+.head{display:grid;grid-template-columns:130px 1fr;gap:30px;margin-bottom:64px;align-items:start}
+.head .idx{font-family:var(--sans);font-size:10.5px;letter-spacing:.3em;color:var(--accent);padding-top:12px}
+.head h2{font-family:var(--sans);font-weight:200;font-size:clamp(30px,3.6vw,46px);letter-spacing:.03em;line-height:1.25}
+.head h2 span{display:block;font-family:var(--serif);font-size:.34em;letter-spacing:.28em;color:var(--soft);margin-top:14px}
+
+.body-grid{display:grid;grid-template-columns:130px 1fr;gap:30px}
+.body-grid .col{max-width:780px}
+.body-grid p{font-size:15px;line-height:2.6;margin-bottom:1.5em}
+.body-grid .lead{font-family:var(--sans);font-weight:300;font-size:22px;line-height:1.95;letter-spacing:.04em;margin-bottom:1.4em}
+.likes{margin-top:52px;padding-top:34px;border-top:1px solid var(--line)}
+.likes-t{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--accent);margin-bottom:20px!important}
+.likes ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px 0}
+.likes li{font-size:15px;letter-spacing:.08em;padding-right:18px;margin-right:18px;border-right:1px solid var(--line);line-height:1.6}
+.likes li:last-child{border-right:0}
+.facts{margin-top:44px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--bg);padding:24px 26px}
+.facts dt{font-family:var(--sans);font-size:10px;letter-spacing:.28em;color:var(--accent);margin-bottom:8px}
+.facts dd{font-size:14px}
+
+/* ---------- works ---------- */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;align-items:start}
+.item{position:relative}
+.item .ph{overflow:hidden}
+.item .ph{width:100%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1);filter:saturate(.6)}
+.item:hover .ph{transform:scale(1.04)}
+.item .meta{margin-top:12px;font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;color:var(--soft)}
+.w7{grid-column:span 7}.w5{grid-column:span 5}.w4{grid-column:span 4}.w8{grid-column:span 8}.w6{grid-column:span 6}
+.r43{aspect-ratio:4/3}.r34{aspect-ratio:3/4}.r11{aspect-ratio:1/1}.r169{aspect-ratio:16/9}
+.g1{background:linear-gradient(120deg,#c8c5bc,#9c998f)}
+.g2{background:linear-gradient(120deg,#d4cfc3,#adA697)}
+.g3{background:linear-gradient(120deg,#bfc4c1,#8f9490)}
+.g4{background:linear-gradient(120deg,#d8d2c5,#b2ab99)}
+.g5{background:linear-gradient(120deg,#c6c0b5,#9b958a)}
+.filters{display:flex;gap:26px;margin-bottom:34px;font-family:var(--sans);font-size:11px;letter-spacing:.22em;color:var(--soft)}
+.filters b{font-weight:400;color:var(--ink);border-bottom:1px solid var(--accent);padding-bottom:4px}
+
+/* ---------- essentials ---------- */
+.ess{list-style:none}
+.ess li{border-top:1px solid var(--line);padding:38px 0;display:grid;grid-template-columns:130px 1fr auto;gap:30px;align-items:baseline;transition:padding .4s}
+.ess li:last-child{border-bottom:1px solid var(--line)}
+.ess li:hover{padding-left:10px}
+.ess .no{font-family:var(--sans);font-size:10.5px;letter-spacing:.3em;color:var(--accent)}
+.ess q{quotes:none;font-size:clamp(19px,2.2vw,27px);line-height:1.9;letter-spacing:.08em}
+.ess .yr{font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;color:var(--soft)}
+
+/* ---------- note ---------- */
+.note{display:grid;grid-template-columns:130px 1fr;gap:30px}
+.note-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;border:1px solid var(--line);padding:48px 44px;transition:.4s}
+.note-inner:hover{background:#fff;border-color:var(--accent)}
+.note-inner h3{font-family:var(--sans);font-weight:300;font-size:30px;letter-spacing:.06em}
+.note-inner p{font-size:14px;color:var(--soft);margin-top:14px;max-width:520px;line-height:2.2}
+.btn{font-family:var(--sans);font-size:11px;letter-spacing:.26em;white-space:nowrap;border-bottom:1px solid var(--accent);padding-bottom:6px;color:var(--accent)}
+
+/* ---------- contact ---------- */
+.contact{border-bottom:none}
+.contact .body-grid p{max-width:560px}
+.mailto{display:inline-block;font-family:var(--sans);font-weight:200;font-size:clamp(26px,3.6vw,46px);letter-spacing:.02em;margin-top:12px;border-bottom:1px solid var(--line);padding-bottom:10px;transition:border-color .4s}
+.mailto:hover{border-color:var(--accent)}
+.links{margin-top:44px;display:flex;gap:30px;font-family:var(--sans);font-size:11px;letter-spacing:.22em;color:var(--soft)}
+footer{margin-left:var(--side);padding:28px 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-family:var(--sans);font-size:10px;letter-spacing:.2em;color:var(--soft)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .95s ease,transform .95s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  :root{--side:0px}
+  aside{position:sticky;top:0;bottom:auto;width:100%;flex-direction:column;align-items:stretch;
+    gap:11px;padding:13px 20px 11px;border-right:none;border-bottom:1px solid var(--line);
+    background:rgba(251,251,249,.94);backdrop-filter:blur(8px)}
+  .logo{font-size:14px;letter-spacing:.14em;line-height:1;display:flex;align-items:baseline;gap:7px}
+  .logo b{display:inline}
+  .logo span{display:inline;margin-top:0;font-size:9.5px;letter-spacing:.34em;transform:translateY(-1px)}
+  .side-nav{display:flex;gap:19px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .side-nav::-webkit-scrollbar{display:none}
+  .side-nav li{border:none!important;flex:0 0 auto}
+  .side-nav a{padding:0;font-size:10.5px;letter-spacing:.16em;white-space:nowrap}
+  .side-nav a:hover{padding-left:0}
+  .side-nav em{display:none}
+  .side-foot{display:none}
+  main,footer{margin-left:0}
+  .hero{height:78vh;min-height:460px}
+  .hero-copy{padding:0 20px 40px}
+  .scroll{display:none}
+  section{padding:70px 20px}
+  .head,.body-grid,.note{grid-template-columns:1fr;gap:16px}
+  .facts{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .w7,.w5,.w4,.w8,.w6{grid-column:span 1}
+  .ess li{grid-template-columns:1fr;gap:10px}
+  .note-inner{flex-direction:column;align-items:flex-start;padding:30px 24px}
+  footer{padding:22px 20px;flex-direction:column;gap:8px}
+}
 </style>
 </head>
 <body>
-  <div class="top">KIYOSHI<b>TEZUKA</b><span>手塚清</span></div>
-  <main>
-    <h1>A quiet<br>snowscape.<i>準備中です</i></h1>
-    <p>雪と風が好きです。写真を撮り、絵を描き、思いついた言葉を書きとめています。<br>サイトはただいま準備中です。しばらくお待ちください。</p>
-    <div class="links">
-      <a href="https://note.com/kt_kojin1984" target="_blank" rel="noopener">NOTE →</a>
+
+<aside>
+  <a class="logo" href="#top">KIYOSHI<b>TEZUKA</b><span>手塚清</span></a>
+  <ul class="side-nav">
+    <li><a href="#about">About<em>私について</em></a></li>
+    <li><a href="#works">Observations<em>写真と絵</em></a></li>
+    <li><a href="#essentials">Essentials<em>ことば</em></a></li>
+    <li><a href="#note">Note<em>文章</em></a></li>
+    <li><a href="#contact">Contact<em>連絡</em></a></li>
+  </ul>
+  <div class="side-foot">kiyoshitezuka.com<br>© 2026</div>
+</aside>
+
+<main id="top">
+  <div class="hero">
+    <div class="bg"></div><div class="veil"></div>
+    <div class="hero-copy">
+      <h1>A quiet<br>snowscape.<i>手塚 清 ／ KIYOSHI TEZUKA</i></h1>
+      <p>雪と風が好きです。写真を撮り、絵を描き、思いついた言葉を書きとめています。</p>
     </div>
-  </main>
-  <footer><span>© 2026 KIYOSHI TEZUKA</span><span>kiyoshitezuka.com</span></footer>
+    <div class="scroll">SCROLL</div>
+  </div>
+
+  <section id="about" class="rv">
+    <div class="head"><span class="idx">01 — ABOUT</span><h2>私について<span>A maker, still making.</span></h2></div>
+    <div class="body-grid"><span></span><div class="col">
+      <p class="lead">1994年、那須の高原でチーズケーキをつくりはじめました。それから三十年。</p>
+      <p>「贈りたいものは時間です」という一行を、ずっと胸に置いて仕事をしてきました。おいしいものをつくるというより、誰かと誰かのあいだに流れる時間を、すこしだけあたたかくしたかったのだと思います。</p>
+      <p>会社を次の手に託したいま、自分のための時間が戻ってきました。朝の光、旅先の看板、忘れられていた景色。カメラを持って歩き、気になったものを描き、ふと浮かんだ言葉を手帳に残す。派手なことはしていませんが、毎日がおもしろい。</p>
+      <p>雪と風が好きです。崖が好きで、山が好きです。</p>
+      <p>このサイトは、その日々の置き場所です。どうぞ気ままにご覧ください。</p>
+      <div class="likes">
+        <p class="likes-t">好きなもの</p>
+        <ul>
+          <li>雪と風</li><li>小柱とつぶ貝</li><li>しらたきと蓮根</li>
+          <li>ウィスキーと日本酒</li><li>かもめのジョナサン</li><li>ダイアン・キートン</li>
+          <li>良寛</li><li>山岡鉄舟</li><li>トクヴィル</li><li>崖、そして山</li>
+        </ul>
+      </div>
+      <div class="facts">
+        <div><dt>FOUNDED</dt><dd>1994 ／ チーズガーデン創業</dd></div>
+        <div><dt>BASE</dt><dd>栃木・那須 ／ 東京</dd></div>
+        <div><dt>NOW</dt><dd>写真・ドローイング・文章</dd></div>
+        <div><dt>WRITING</dt><dd>note にて執筆中</dd></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section id="works" class="rv">
+    <div class="head"><span class="idx">02 — WORKS</span><h2>Observations<span>見えたもの、描いたもの</span></h2></div>
+    <div class="filters"><b>ALL</b><span>PHOTOGRAPHS</span><span>DRAWINGS</span><span>SERIES</span></div>
+    <div class="grid">
+      <div class="item w7"><div class="ph r43 g1"></div><div class="meta">朝の窓辺 ／ PHOTOGRAPH ／ 2026</div></div>
+      <div class="item w5"><div class="ph r43 g2"></div><div class="meta">器のスケッチ ／ DRAWING</div></div>
+      <div class="item w4"><div class="ph r34 g3"></div><div class="meta">道の途中 ／ 2025</div></div>
+      <div class="item w4"><div class="ph r34 g4"></div><div class="meta">水彩「夏」 ／ 2026</div></div>
+      <div class="item w4"><div class="ph r34 g5"></div><div class="meta">夕暮れ・東京 ／ 2026</div></div>
+      <div class="item w6"><div class="ph r169 g2"></div><div class="meta">連作「日日」 ／ 01</div></div>
+      <div class="item w6"><div class="ph r169 g1"></div><div class="meta">連作「日日」 ／ 02</div></div>
+    </div>
+  </section>
+
+  <section id="essentials" class="rv">
+    <div class="head"><span class="idx">03 — ESSENTIALS</span><h2>ことば<span>自分でも気に入っている、いくつかの一行</span></h2></div>
+    <ul class="ess">
+      <li><span class="no">01</span><q>贈りたいものは、時間です。</q><span class="yr">1994</span></li>
+      <li><span class="no">02</span><q>急がなくていい。ただし、止まらない。</q><span class="yr">手帳より</span></li>
+      <li><span class="no">03</span><q>手をかけた分だけ、味は正直になる。</q><span class="yr">窯の前で</span></li>
+      <li><span class="no">04</span><q>余白があるから、人は座れる。</q><span class="yr">2026</span></li>
+    </ul>
+  </section>
+
+  <section id="note" class="rv">
+    <div class="head"><span class="idx">04 — NOTE</span><h2>文章<span>まとまった話はこちらに</span></h2></div>
+    <div class="note"><span></span>
+      <a class="note-inner" href="https://note.com/kt_kojin1984" target="_blank" rel="noopener">
+        <div><h3>note</h3><p>思ったこと、読んだ本、旅先のこと。日々の考えを文章にして書いています。更新はnoteにて。</p></div>
+        <span class="btn">note.com/kt_kojin1984 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact rv">
+    <div class="head"><span class="idx">05 — CONTACT</span><h2>連絡先<span>お気軽にどうぞ</span></h2></div>
+    <div class="body-grid"><span></span><div class="col">
+      <p>お仕事のご相談も、そうでないお便りも歓迎します。</p>
+      <a class="mailto" href="#">hello@kiyoshitezuka.com</a>
+      <div class="links"><span>INSTAGRAM</span><a href="https://note.com/kt_kojin1984" target="_blank" rel="noopener">NOTE</a><span>FACEBOOK</span></div>
+    </div></div>
+  </section>
+</main>
+
+<footer><span>© 2026 KIYOSHI TEZUKA</span><span>kiyoshitezuka.com</span></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
