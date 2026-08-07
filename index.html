@@ -14,7 +14,7 @@
   --ink:#141414;
   --soft:#7d7b76;
   --line:#e2e0da;
-  --accent:#1a3d34;
+  --accent:#1c2e4d;  /* Baked Navy */
   --sans:"Jost","Zen Old Mincho","Hiragino Sans",sans-serif;
   --serif:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
   --side:260px;
@@ -46,7 +46,6 @@ main{margin-left:var(--side)}
 /* ---------- hero ---------- */
 .hero{height:100vh;min-height:620px;position:relative;display:flex;align-items:flex-end;overflow:hidden}
 .hero .bg{position:absolute;inset:0;background:linear-gradient(115deg,#cdcbc4,#a8a69d 45%,#84837c);filter:saturate(.35)}
-.hero .bg::after{content:"FULL-BLEED PHOTO";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--sans);font-size:11px;letter-spacing:.5em;color:rgba(255,255,255,.7)}
 .hero .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.5),rgba(10,10,10,0) 55%)}
 .hero-copy{position:relative;padding:0 60px 70px;color:#fbfbf9}
 .hero-copy h1{font-family:var(--sans);font-weight:200;font-size:clamp(40px,6.2vw,88px);letter-spacing:.02em;line-height:1.05}
@@ -69,7 +68,7 @@ section{padding:120px 60px;border-bottom:1px solid var(--line)}
 .body-grid{display:grid;grid-template-columns:130px 1fr;gap:30px}
 .body-grid .col{max-width:780px}
 .body-grid p{font-size:15px;line-height:2.6;margin-bottom:1.5em}
-.body-grid .lead{font-family:var(--sans);font-weight:300;font-size:22px;line-height:1.95;letter-spacing:.04em;margin-bottom:1.4em}
+.body-grid .lead{font-family:var(--serif);font-weight:400;font-size:21px;line-height:2.15;letter-spacing:.08em;margin-bottom:1.5em}
 .likes{margin-top:52px;padding-top:34px;border-top:1px solid var(--line)}
 .likes-t{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--accent);margin-bottom:20px!important}
 .likes ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px 0}
@@ -182,11 +181,14 @@ footer{margin-left:var(--side);padding:28px 60px;border-top:1px solid var(--line
   <section id="about" class="rv">
     <div class="head"><span class="idx">01 — ABOUT</span><h2>私について<span>A maker, still making.</span></h2></div>
     <div class="body-grid"><span></span><div class="col">
-      <p class="lead">1994年、那須の高原でチーズケーキをつくりはじめました。それから三十年。</p>
-      <p>「贈りたいものは時間です」という一行を、ずっと胸に置いて仕事をしてきました。おいしいものをつくるというより、誰かと誰かのあいだに流れる時間を、すこしだけあたたかくしたかったのだと思います。</p>
-      <p>会社を次の手に託したいま、自分のための時間が戻ってきました。朝の光、旅先の看板、忘れられていた景色。カメラを持って歩き、気になったものを描き、ふと浮かんだ言葉を手帳に残す。派手なことはしていませんが、毎日がおもしろい。</p>
-      <p>雪と風が好きです。崖が好きで、山が好きです。</p>
-      <p>このサイトは、その日々の置き場所です。どうぞ気ままにご覧ください。</p>
+      <p class="lead">1984年、那須塩原に小さな菓子屋をひらきました。それから35年、チーズガーデンという名前とともに歩いてきました。</p>
+      <p>お菓子を食べるとき、人はたいてい笑っています。お菓子屋ほどいい仕事はない、といまでも思います。「すべては笑顔のために」という言葉を会社の真ん中に置いたのは、それ以上の理由が見つからなかったからです。</p>
+      <p>食は、人間がコミュニケーションをする最高の場面だと思っています。だからできるだけ、誰かと一緒に食べたい。那須の本店に厨房のあるカフェをつくったのも、催しが終わって解散するのではなく、そのあとに食卓のある場所にしたかったからでした。</p>
+      <p>迷ったときは、損得ではなく善悪で決める。そう決めていました。利益は企業の務めですが、それだけを見ていると、続く関係はつくれません。</p>
+      <p>会社については、人が自由に発想し、フェアな空気のなかで、それぞれが責任と自由を持って何かを生み出すことに没頭できる場所でありたいと考えてきました。良いものが生まれたときは、たいてい、そういう空気がありました。</p>
+      <p>35年かけて、「那須といえばチーズガーデン」と言っていただけるようになりました。心を込め、素材を選び、手をかける。それだけを続けてきたつもりです。</p>
+      <p>2018年、会社を次の手に渡しました。いまは、市場があるから始めるのではなく、こういうことをやりたいという思いのほうから始めるようにしています。京都でギャラリーを、大阪で書店をひらき、若い経営者やつくり手の手伝いをしています。</p>
+      <p>そして、雪が好きです。写真を撮り、絵を描き、思いついた言葉を書きとめる。誰に頼まれたわけでもないことを、いま、はじめてやっています。</p>
       <div class="likes">
         <p class="likes-t">好きなもの</p>
         <ul>
@@ -196,10 +198,10 @@ footer{margin-left:var(--side);padding:28px 60px;border-top:1px solid var(--line
         </ul>
       </div>
       <div class="facts">
-        <div><dt>FOUNDED</dt><dd>1994 ／ チーズガーデン創業</dd></div>
-        <div><dt>BASE</dt><dd>栃木・那須 ／ 東京</dd></div>
-        <div><dt>NOW</dt><dd>写真・ドローイング・文章</dd></div>
-        <div><dt>WRITING</dt><dd>note にて執筆中</dd></div>
+        <div><dt>FOUNDED</dt><dd>1984 ／ 那須塩原にて創業</dd></div>
+        <div><dt>HANDED OVER</dt><dd>2018 ／ 次の世代へ</dd></div>
+        <div><dt>NOW</dt><dd>京都・大阪 ／ ギャラリーと書店</dd></div>
+        <div><dt>MAKING</dt><dd>写真・ドローイング・文章</dd></div>
       </div>
     </div></div>
   </section>
@@ -258,6 +260,8 @@ footer{margin-left:var(--side);padding:28px 60px;border-top:1px solid var(--line
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const ctx = c.getContext('2d');
   let w = 0, h = 0, dpr = 1, flakes = [], raf = null, running = false;
+  // Baked Navy — 2粒だけ、ごくたまに降る
+  let navy = null, navySecond = false, navyAt = 11000 + Math.random() * 14000;
 
   function build(){
     const rect = c.getBoundingClientRect();
@@ -280,6 +284,12 @@ footer{margin-left:var(--side);padding:28px 60px;border-top:1px solid var(--line
       a: 0.28 + Math.random() * 0.42
     };
   }
+  function dot(x, y, r, color){
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
   function frame(t){
     ctx.clearRect(0, 0, w, h);
     for(let i = 0; i < flakes.length; i++){
@@ -287,10 +297,20 @@ footer{margin-left:var(--side);padding:28px 60px;border-top:1px solid var(--line
       f.y += f.vy;
       const x = f.x + Math.sin(t * f.freq + f.phase) * f.amp;
       if(f.y - f.r > h) flakes[i] = make(false);
-      ctx.beginPath();
-      ctx.arc(x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255,255,255,' + f.a + ')';
-      ctx.fill();
+      dot(x, f.y, f.r, 'rgba(255,255,255,' + f.a + ')');
+    }
+    if(!navy && t >= navyAt){
+      navy = make(false);
+      navy.r *= 1.35;
+      navy.vy *= 0.8;
+      if(!navySecond){ navySecond = true; navyAt = t + 4000 + Math.random() * 6000; }
+      else { navySecond = false; navyAt = t + 150000 + Math.random() * 180000; }
+    }
+    if(navy){
+      navy.y += navy.vy;
+      const nx = navy.x + Math.sin(t * navy.freq + navy.phase) * navy.amp;
+      if(navy.y - navy.r > h) navy = null;
+      else dot(nx, navy.y, navy.r, 'rgba(28,46,77,.92)');
     }
     raf = requestAnimationFrame(frame);
   }
